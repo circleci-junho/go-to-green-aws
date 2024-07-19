@@ -11,11 +11,27 @@ jobs:
       - image: node:current-slim
     steps:
       - run: echo "Hello world2!"
+  world3:
+    docker:
+      - image: node:current-slim
+    steps:
+      - run: echo "Hello world3!"
+  world4:
+    docker:
+      - image: node:current-slim
+    steps:
+      - run: echo "Hello world4!"
 
 workflows:
   hello:
     jobs:
       - world1
       - world2:
+          requires:
+            - world1
+      - world3:
+          requires:
+            - world1
+      - world4:
           requires:
             - world1
