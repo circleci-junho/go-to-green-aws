@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: echo "Hello world2!"
 
-workflow:
+workflows:
   hello:
     jobs:
       - world1
